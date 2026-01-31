@@ -1,0 +1,14 @@
+Licencja — prawa autorskie
+
+© [2026] [mgr inż. Artur Pelo]. 
+Wszelkie prawa zastrzeżone.
+
+Niniejszy projekt oraz wszystkie pliki wzorca, 
+materiały źródłowe i rysunki mogą być wykorzystywane 
+wyłącznie w ramach zajęć prowadzonych przez autora. 
+ZABRANIA SIĘ wykorzystywania, kopiowania, rozpowszechniania,
+modyfikowania lub udostępniania tego projektu poza tymi zajęciami
+bez uprzedniej, pisemnej zgody autora.
+
+W sprawie zgody i pytań proszę kontaktować się pod 
+adresem: [artur.pelo@gmail.com].

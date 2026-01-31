@@ -1,0 +1,149 @@
+\documentclass[12pt, a4paper, oneside]{report}
+
+% --- Pakiety podstawowe ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+% --- Dodanie wąskiej czcionki programistycznej ---
+\usepackage[varqu,varl]{zi4} % Inconsolata - smukła, nowoczesna i czytelna czcionka do kodu
+\usepackage[polish]{babel}
+\usepackage{lmodern, indentfirst, geometry, setspace, graphicx, xcolor}
+\geometry{lmargin=3cm, rmargin=2.5cm, tmargin=2.5cm, bmargin=2.5cm}
+\usepackage{chngcntr}
+
+% --- POPRAWKA 1: Globalna interlinia ---
+\onehalfspacing 
+
+% --- Rysunki UML i TikZ ---
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, shapes}
+% --- Ścieżka do rysunków ---
+\usepackage{graphicx}
+\graphicspath{ {./rysunki/} } 
+
+% --- Formatowanie nagłówków ---
+\usepackage{titlesec}
+\titleformat{\chapter}[hang]{\normalfont\fontsize{16}{20}\selectfont\bfseries}{\thechapter.}{0.5em}{}
+\titleformat{\section}[hang]{\normalfont\fontsize{14}{18}\selectfont\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}[hang]{\normalfont\fontsize{14}{18}\selectfont\bfseries}{\thesubsection.}{0.5em}{}
+
+\titlespacing*{\chapter}{0pt}{-20pt}{20pt}
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+
+% --- Konfiguracja podpisów ---
+\usepackage{caption}
+\captionsetup[table]{
+    labelsep=newline,
+    justification=raggedright,
+    singlelinecheck=false,
+    font=normalfont,
+    labelfont=normalfont,
+    skip=6pt
+}
+
+% --- Numeracja i odstępy obiektów ---
+\counterwithout{table}{chapter}
+\counterwithout{figure}{chapter}
+\setlength{\intextsep}{12pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{15pt plus 2pt minus 2pt}
+\setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+% --- Bibliografia ---
+\usepackage[backend=biber, style=authoryear, sorting=nyt]{biblatex}
+\addbibresource{Bibliografia.bib}
+\addbibresource{Netografia.bib}
+\renewcommand*{\nameyeardelim}{\addcomma\space}
+
+% --- Listingi ---
+\usepackage{booktabs, listings}
+\counterwithout{lstlisting}{chapter}
+\addto\captionspolish{\renewcommand{\lstlistingname}{Listing}}
+\renewcommand{\thelstlisting}{\arabic{lstlisting}}
+
+% --- Listingi ---
+\lstset{
+    backgroundcolor=\color{gray!10}, 
+    % \small i Inconsolata (\ttfamily) sprawią, że kod będzie bardzo zwarty
+    basicstyle=\small\ttfamily\setstretch{0.9}, 
+    columns=fullflexible,    % Najmocniejsze zwężenie odstępów między literami
+    keepspaces=true, 
+    breaklines=true, 
+    tabsize=4,               % Standardowa szerokość tabulacji
+    numbers=left, 
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue}\bfseries, 
+    commentstyle=\color{green!50!black},
+    stringstyle=\color{orange},
+    inputencoding=utf8, 
+    extendedchars=true,
+    literate={ą}{{\k{a}}}1 {ć}{{\'c}}1 {ę}{{\k{e}}}1 {ł}{{\l{}}}1 {ń}{{\'n}}1 {ó}{{\'o}}1 {ś}{{\'s}}1 {ź}{{\'z}}1 {ż}{{\.z}}1
+}
+
+% --- Spis treści (TOC) ---
+\usepackage{tocloft}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftchappagefont}{\normalfont}
+\renewcommand{\cftchapfont}{\normalfont}
+\setlength{\cftbeforechapskip}{0pt}
+
+% --- Kropki po numerach w spisie treści ---
+\renewcommand{\cftchapaftersnum}{.} 
+\renewcommand{\cftsecaftersnum}{.}  
+\renewcommand{\cftsubsecaftersnum}{.}
+
+% ---  Ustawienie odstępu, aby numer z kropką nie nachodził na tekst ---
+\addtolength{\cftchapnumwidth}{0pt}
+\addtolength{\cftsecnumwidth}{0pt}
+\addtolength{\cftsubsecnumwidth}{0pt}
+
+% --- Linki ---
+\usepackage{hyperref}
+\hypersetup{hidelinks}
+
+% =================================================================
+
+\begin{document}
+
+% 1. Strona tytułowa
+\title{Nazwa przedmiotu (projekt)\\tu Tytuł Twojej Pracy}
+\author{Imię Nazwisko \\ nr albumu: 123456 \\ kierunek: Informatyka \\ rok: 2025/2026}
+\maketitle
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% 2. Spis treści
+\newpage
+% POPRAWKA 3: Usunięto zbędne środowisko \begin{spacing}
+\tableofcontents
+\clearpage
+
+% 3. Treść merytoryczna
+\input{Wstep}
+\input{Rozdzial1}
+\input{Rozdzial2}
+\input{Rozdzial3}
+\input{Podsumowanie}
+
+% 4. Bibliografia
+\clearpage
+\phantomsection
+\printbibliography[title={Bibliografia}, nottype=online, heading=bibintoc]
+
+\clearpage
+\phantomsection
+\printbibliography[title={Netografia}, type=online, heading=bibintoc]
+
+% 5. Spis rysunków
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{\listfigurename}
+\listoffigures
+
+% 6. Spis tabel
+\clearpage
+\phantomsection 
+\addcontentsline{toc}{chapter}{\listtablename}
+\listoftables
+
+\end{document}

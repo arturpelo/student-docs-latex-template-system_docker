@@ -1,0 +1,4 @@
+# Ignore draw.io files
+*.drawio
+*.svg
+
