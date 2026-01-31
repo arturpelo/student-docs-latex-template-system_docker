@@ -49,7 +49,7 @@ echo %ESC%[90m^|       Copyright © 2026 Artur Pelo. All rights reserved.       
 echo %ESC%[90m└───────────────────────────────────────────────────────────────┘%ESC%[0m
 
 :: Kasowanie plikow tymczasowych
-del /q *.aux *.bbl *.bcf *.blg *.fdb_latexmk *.fls *.log *.out *.run.xml *.synctex.gz *.toc *.lof *.lot *.nav *.snm *.vrb 2>nul
+del /q *.aux *.bbl *.bcf *.blg *.fdb_latexmk *.fls *.log *.lol *.out *.run.xml *.synctex.gz *.toc *.lof *.lot *.nav *.snm *.vrb 2>nul
 del /q main.bbl main.bcf main.run.xml 2>nul
 
 echo.

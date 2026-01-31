@@ -24,12 +24,22 @@
 % --- Formatowanie nagłówków ---
 \usepackage{titlesec}
 \titleformat{\chapter}[hang]{\normalfont\fontsize{16}{20}\selectfont\bfseries}{\thechapter.}{0.5em}{}
+\titleformat{name=\chapter,numberless}[hang]{\normalfont\fontsize{16}{20}\selectfont\bfseries}{}{0pt}{}
 \titleformat{\section}[hang]{\normalfont\fontsize{14}{18}\selectfont\bfseries}{\thesection.}{0.5em}{}
 \titleformat{\subsection}[hang]{\normalfont\fontsize{14}{18}\selectfont\bfseries}{\thesubsection.}{0.5em}{}
 
 \titlespacing*{\chapter}{0pt}{12pt}{12pt}
 \titlespacing*{\section}{0pt}{6pt}{6pt}
 \titlespacing*{\subsection}{0pt}{6pt}{6pt}
+
+% --- Formatowanie tytułów spisów (LOF, LOT, LOL) ---
+\usepackage{tocloft}
+\renewcommand{\cfttoctitlefont}{\normalfont\fontsize{16}{20}\selectfont\bfseries}
+\renewcommand{\cftloftitlefont}{\normalfont\fontsize{16}{20}\selectfont\bfseries}
+\renewcommand{\cftlottitlefont}{\normalfont\fontsize{16}{20}\selectfont\bfseries}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand{\cftafterloftitle}{\hfill}
+\renewcommand{\cftafterlottitle}{\hfill}
 
 % --- Konfiguracja podpisów ---
 \usepackage{caption}
@@ -48,8 +58,20 @@
     justification=raggedright,
     singlelinecheck=false,
     font={small,normalfont},
-    labelfont={small,normalfont},
+    labelfont={small,sl},
     skip=6pt
+}
+
+% --- Makra dla źródeł (pochylone) ---
+\newcommand{\sourcefig}[1]{%
+    \begin{flushright}
+    {\footnotesize\slshape Źródło: #1}
+    \end{flushright}
+}
+\newcommand{\sourcetab}[1]{%
+    \begin{flushright}
+    {\footnotesize\slshape Źródło: #1}
+    \end{flushright}
 }
 
 % --- Numeracja i odstępy obiektów ---
@@ -79,6 +101,17 @@
     labelfont={small,normalfont},
     skip=6pt
 }
+% Nazwa spisu listingów
+\renewcommand{\lstlistlistingname}{Spis listingów}
+% Formatowanie nagłówka spisu listingów
+\makeatletter
+\renewcommand\lstlistoflistings{%
+    \cleardoublepage
+    \chapter*{\lstlistlistingname}%
+    \addcontentsline{toc}{chapter}{\lstlistlistingname}%
+    \@starttoc{lol}%
+}
+\makeatother
 
 % --- Listingi ---
 \lstset{
@@ -175,5 +208,8 @@
 \phantomsection 
 \addcontentsline{toc}{chapter}{\listtablename}
 \listoftables
+
+% 7. Spis listingów
+\lstlistoflistings
 
 \end{document}
