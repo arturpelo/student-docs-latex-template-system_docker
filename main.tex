@@ -8,6 +8,7 @@
 \usepackage[polish]{babel}
 \usepackage{lmodern, indentfirst, geometry, setspace, graphicx, xcolor}
 \geometry{lmargin=3cm, rmargin=2.5cm, tmargin=2.5cm, bmargin=2.5cm}
+\setlength{\parindent}{0.75cm}
 \usepackage{chngcntr}
 
 % --- POPRAWKA 1: Globalna interlinia ---
@@ -26,18 +27,28 @@
 \titleformat{\section}[hang]{\normalfont\fontsize{14}{18}\selectfont\bfseries}{\thesection.}{0.5em}{}
 \titleformat{\subsection}[hang]{\normalfont\fontsize{14}{18}\selectfont\bfseries}{\thesubsection.}{0.5em}{}
 
-\titlespacing*{\chapter}{0pt}{-20pt}{20pt}
-\titlespacing*{\section}{0pt}{12pt}{6pt}
-\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+\titlespacing*{\chapter}{0pt}{12pt}{12pt}
+\titlespacing*{\section}{0pt}{6pt}{6pt}
+\titlespacing*{\subsection}{0pt}{6pt}{6pt}
 
 % --- Konfiguracja podpisów ---
 \usepackage{caption}
+% Tabele: Tytuł nad tabelą, format "Tabela 1" <enter> "Tytuł" (bez kropki)
 \captionsetup[table]{
     labelsep=newline,
     justification=raggedright,
     singlelinecheck=false,
-    font=normalfont,
-    labelfont=normalfont,
+    font={normalsize,normalfont},
+    labelfont={normalsize,normalfont},
+    skip=6pt
+}
+% Rysunki: Format "Rysunek X. Tytuł" (z kropką), 11pt, wyrównanie do lewej
+\captionsetup[figure]{
+    labelsep=period,
+    justification=raggedright,
+    singlelinecheck=false,
+    font={small,normalfont},
+    labelfont={small,normalfont},
     skip=6pt
 }
 
@@ -56,9 +67,18 @@
 
 % --- Listingi ---
 \usepackage{booktabs, listings}
-\counterwithout{lstlisting}{chapter}
 \addto\captionspolish{\renewcommand{\lstlistingname}{Listing}}
-\renewcommand{\thelstlisting}{\arabic{lstlisting}}
+% Usunięcie numeracji rozdziałowej dla listingów
+\AtBeginDocument{\counterwithout{lstlisting}{chapter}}
+% Konfiguracja podpisów listingów - 11pt
+\captionsetup[lstlisting]{
+    labelsep=period,
+    justification=raggedright,
+    singlelinecheck=false,
+    font={small,normalfont},
+    labelfont={small,normalfont},
+    skip=6pt
+}
 
 % --- Listingi ---
 \lstset{
@@ -101,6 +121,13 @@
 \hypersetup{hidelinks}
 
 % =================================================================
+
+% --- Numeracja stron na dole, na środku ---
+\usepackage{fancyhdr}
+\pagestyle{plain}
+\fancyhf{}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
 
 \begin{document}
 
