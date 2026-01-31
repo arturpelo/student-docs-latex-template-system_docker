@@ -3,12 +3,19 @@ Licencja — prawa autorskie
 © [2026] [mgr inż. Artur Pelo]. 
 Wszelkie prawa zastrzeżone.
 
+Licencja edukacyjna — wyłącznie na zajęcia autora projektu 
+i wyłącznie do celów tworzenia dokumentacji projektów w formacie PDF realizowanych przez autora.
+
 Niniejszy projekt oraz wszystkie pliki wzorca, 
 materiały źródłowe i rysunki mogą być wykorzystywane 
 wyłącznie w ramach zajęć prowadzonych przez autora. 
 ZABRANIA SIĘ wykorzystywania, kopiowania, rozpowszechniania,
 modyfikowania lub udostępniania tego projektu poza tymi zajęciami
 bez uprzedniej, pisemnej zgody autora.
+Prawa wykorzystania udziela się tylko na czas trwania zajęć lub szkoleń.
 
 W sprawie zgody i pytań proszę kontaktować się pod 
 adresem: [artur.pelo@gmail.com].
+
+
+(All Rights Reserved).
