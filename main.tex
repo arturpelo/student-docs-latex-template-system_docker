@@ -6,7 +6,8 @@
 % --- Dodanie wąskiej czcionki programistycznej ---
 \usepackage[varqu,varl]{zi4} % Inconsolata - smukła, nowoczesna i czytelna czcionka do kodu
 \usepackage[polish]{babel}
-\usepackage{lmodern, indentfirst, geometry, setspace, graphicx, xcolor}
+\usepackage{lmodern, indentfirst, geometry, setspace, graphicx, xcolor, float}
+\usepackage{etoolbox}
 \geometry{lmargin=3cm, rmargin=2.5cm, tmargin=2.5cm, bmargin=2.5cm}
 \setlength{\parindent}{0.75cm}
 \usepackage{chngcntr}
@@ -45,6 +46,10 @@
 \renewcommand{\cftaftertoctitle}{\hfill}
 \renewcommand{\cftafterloftitle}{\hfill}
 \renewcommand{\cftafterlottitle}{\hfill}
+% Usunięcie nadmiernego odstępu przed spisem treści
+\cftsetindents{chapter}{0em}{1.15em}
+\setlength{\cftchapnumwidth}{1em}
+\setlength{\cftbeforetoctitleskip}{0pt}
 
 % --- Konfiguracja podpisów ---
 \usepackage{caption}
@@ -53,8 +58,8 @@
     labelsep=newline,
     justification=raggedright,
     singlelinecheck=false,
-    font={normalsize,normalfont},
-    labelfont={normalsize,normalfont},
+    font={small,normalfont},
+    labelfont={small,normalfont},
     skip=6pt
 }
 % Rysunki: Format "Rysunek X. Tytuł" (z kropką), 11pt, wyrównanie do lewej
@@ -63,7 +68,7 @@
     justification=raggedright,
     singlelinecheck=false,
     font={small,normalfont},
-    labelfont={small,sl},
+    labelfont={small,normalfont},
     skip=6pt
 }
 
@@ -85,6 +90,9 @@
 \setlength{\intextsep}{12pt plus 2pt minus 2pt}
 \setlength{\textfloatsep}{15pt plus 2pt minus 2pt}
 \setlength{\floatsep}{12pt plus 2pt minus 2pt}
+
+% --- Globalna czcionka w tabelach (10 pkt) ---
+\AtBeginEnvironment{tabular}{\fontsize{10}{12}\selectfont}
 
 % --- Bibliografia ---
 \usepackage[backend=biber, style=authoryear, sorting=nyt]{biblatex}
