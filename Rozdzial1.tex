@@ -1,24 +1,39 @@
-\chapter{Temat rozdziału}
-Tutaj treść rozdziału 1. Możesz dopisać swoje podrozdziały i sekcje tutaj. 
-Pamiętaj, aby nie zostawiać pustej linii bezpośrednio przed otwarciem środowiska tabeli, jeśli chcesz, aby była ona bliżej tekstu.
+\chapter{Cel i zakres pracy}
 
-\section{Podrozdział albo sekcja }
-Przykładowy tekst, który prowadzi bezpośrednio do prezentacji danych. Warto wspomnieć o literaturze przedmiotu \parencite{kowalski2026}.
+\section{Cel pracy}
+Celem niniejszej pracy inżynierskiej jest zaprojektowanie i wykonanie rozwiązania
+informatycznego wspierającego przygotowanie dokumentów w~\LaTeX{} oraz automatyzującego
+proces kompilacji w~ujednoliconym środowisku uruchomieniowym. Projektowy charakter pracy
+obejmuje analizę wymagań, opracowanie architektury, implementację oraz weryfikację poprawności
+działania przygotowanego rozwiązania.
 
-\begin{table}[ht!]
-\centering
-\caption{Przykładowa tabela z trzema kolumnami sformatowana zgodnie z zasadami}
-\label{tab:przyklad}
-\begin{tabular}{llr}
-\toprule
-Nazwa elementu & Opis funkcjonalności & Wartość [j.] \\  
-\midrule
-Element A      & Opis szczegółowy A    & 10 \\
-Element B      & Opis szczegółowy B    & 20 \\ 
-Element C      & Opis szczegółowy C    & 30 \\
-\bottomrule 
-\end{tabular}
-\sourcetab{opracowanie własne}
-\end{table}
+\section{Cele szczegółowe}
+W~ramach realizacji celu głównego wyznaczono następujące cele szczegółowe:
+\begin{itemize}
+    \item analiza problemu i zdefiniowanie wymagań funkcjonalnych i niefunkcjonalnych,
+    \item zaprojektowanie struktury systemu oraz procesu kompilacji dokumentów,
+    \item implementacja rozwiązania wraz z~mechanizmami automatyzacji uruchomienia,
+    \item przygotowanie scenariuszy weryfikacyjnych i ocena rezultatów.
+\end{itemize}
 
-Kolejny akapit tekstu zaczyna się tutaj. 
+Zgodnie z~ujęciem przedstawionym w~literaturze, nowoczesne systemy informatyczne powinny
+być projektowane z~myślą o~powtarzalności procesów oraz możliwości automatyzacji,
+co bezpośrednio wpływa na jakość i niezawodność wytworzonych rezultatów
+\parencite{kowalski2026}.
+
+\section{Zakres pracy}
+Zakres pracy obejmuje:
+\begin{itemize}
+    \item opracowanie koncepcji systemu do tworzenia dokumentów oraz jego architektury,
+    \item dobór technologii wspierających kompilację w~kontenerach Docker,
+    \item implementację skryptów uruchomieniowych i konfiguracji projektu,
+    \item weryfikację poprawności generowania dokumentu wynikowego.
+\end{itemize}
+Poza zakresem pracy pozostają: rozbudowane badania wydajnościowe, tworzenie alternatywnych
+silników składu oraz pełna integracja z~zewnętrznymi systemami CI/CD.
+
+\section{Struktura pracy}
+Praca została podzielona na pięć rozdziałów. Rozdział pierwszy przedstawia cel oraz zakres.
+Rozdział drugi opisuje problematykę projektu i uzasadnia wybór tematu. Rozdział trzeci
+zawiera analizę wymagań oraz projekt systemu. Rozdział czwarty prezentuje implementację
+i~sposób uruchamiania rozwiązania. Rozdział piąty obejmuje testy i ocenę rezultatów.

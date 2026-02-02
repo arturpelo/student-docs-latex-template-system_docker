@@ -1,7 +1,32 @@
-\chapter{Temat rozdziału}
-Tutaj treść rozdziału 2. Dodaj zawartość zgodnie z potrzebą.
+\chapter{Problematyka projektu}
+Rozdział przedstawia problem projektowy związany z~przygotowaniem dokumentów w~\LaTeX{}
+oraz trudnościami w~zapewnieniu powtarzalnego procesu kompilacji na różnych stanowiskach.
+Kluczowym wyzwaniem jest ujednolicenie środowiska narzędziowego oraz uproszczenie procesu
+tworzenia pliku wynikowego dla użytkownika końcowego.
 
-\section{Podrozdział albo sekcja }
-Przykładowy tekst.
+\section{Opis problemu}
+W~praktyce akademickiej często występują rozbieżności w~konfiguracji narzędzi \LaTeX{},
+co skutkuje błędami kompilacji, różnicami w~wyniku składu lub brakiem możliwości
+odtworzenia wyników na innym komputerze. Problemem jest również złożoność procesu
+kompilacji, wymagającego znajomości wielu parametrów i narzędzi pomocniczych.
+Projekt ma na celu uproszczenie tego procesu oraz zapewnienie powtarzalności wyników.
 
-Przykład odwołania do źródła internetowego (netografia): \parencite{goossens97}.
+\section{Cel i zakres pracy}
+Głównym celem projektu jest przygotowanie rozwiązania, które umożliwia kompilację
+dokumentów \LaTeX{} w~izolowanym środowisku kontenerowym oraz dostarcza prosty mechanizm
+uruchomienia procesu kompilacji. Zakres obejmuje analizę wymagań, projekt architektury,
+implementację i weryfikację działania rozwiązania.
+
+\section{Uzasadnienie wyboru tematu}
+Wybór tematu wynika z~praktycznych potrzeb studentów i promotorów w~zakresie tworzenia
+prac dyplomowych oraz rosnącej popularności narzędzi kontenerowych w~inżynierii oprogramowania.
+W~literaturze podkreśla się znaczenie automatyzacji procesu składu i jego niezawodności
+\parencite{goossens97}.
+
+\section{Pytania badawcze}
+W~ramach projektu sformułowano następujące pytania:
+\begin{itemize}
+	\item W~jaki sposób ujednolicić środowisko kompilacji dokumentów \LaTeX{} na różnych systemach?
+	\item Jak zaprojektować proces kompilacji, aby był prosty w~użyciu i możliwy do automatyzacji?
+	\item Jakie wymagania funkcjonalne i niefunkcjonalne są kluczowe dla użytkownika końcowego?
+\end{itemize}

@@ -1,6 +1,114 @@
 \chapter*{Wstęp}
 \addcontentsline{toc}{chapter}{Wstęp}
+% --- Wstęp do pracy ---
+Wstęp powinien zawierać krótki opis tematu pracy, jej cel oraz zakres. Możesz również wspomnieć o strukturze dokumentu i metodach badawczych, które zostaną użyte.
+
+%===============================================================================================
+%--- Przykład cytowania i kodu źródłowego, tabel, obrazów i listingów ---
+Poniżej znajduje się przykładowy fragment tekstu zawierający cytowanie 
+oraz listing kodu źródłowego. Wzory tabel, grafik itp. 
+Stanowią one jedynie wzór do dalszego rozwinięcia pracy.
+%===============================================================================================
+%--- Przykłady cytowania, ----
+\section*{Przykład cytowania}
+
 To jest przykład cytowania \cite{lamport94}. Poniżej kod:
-\begin{lstlisting}[language=Python, caption={Test}]
-print("Witaj świecie!") # Polskie znaki: ąężć
+
+%===============================================================================================
+%--- Przykład kodu źródłowego w CPP ---
+\section*{Przykład kodu źródłowego w CPP}
+\begin{lstlisting}[language=Python, caption={Program sumujący dwie liczby w Pythonie}]
+def main():
+    liczba1 = float(input("Podaj pierwszą liczbę: "))
+    liczba2 = float(input("Podaj drugą liczbę: "))
+    suma = liczba1 + liczba2
+    print(f"Suma: {suma}")
+
+if __name__ == "__main__":
+    main()
 \end{lstlisting}
+%--- Przykład kodu źródłowego w JAVA ---
+\section*{Przykład kodu źródłowego w JAVA}
+\begin{lstlisting}[language=Java, caption={Program sumujący dwie liczby w Javie}]
+import java.util.Scanner;
+
+public class Suma {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Podaj pierwszą liczbę: ");
+        float liczba1 = scanner.nextFloat();
+        System.out.print("Podaj drugą liczbę: ");
+        float liczba2 = scanner.nextFloat();
+        float suma = liczba1 + liczba2;
+        System.out.println("Suma: " + suma);
+        scanner.close();
+    }
+}
+\end{lstlisting}
+
+%--- Przykład kodu źródłowego w CPP ---
+\section*{Przykład kodu źródłowego w CPP}
+\begin{lstlisting}[language=C++, caption={Program sumujący dwie liczby w C++}]
+#include <iostream>
+using namespace std;
+
+int main() {
+    float liczba1, liczba2;
+    cout << "Podaj pierwszą liczbę: ";
+    cin >> liczba1;
+    cout << "Podaj drugą liczbę: ";
+    cin >> liczba2;
+    float suma = liczba1 + liczba2;
+    cout << "Suma: " << suma << endl;
+    return 0;
+}
+\end{lstlisting}
+
+
+%--- Przykład zapytania SQL ---
+\section*{Przykład zapytania SQL}   
+\begin{lstlisting}[language=SQL, caption={Zapytanie SQL wybierające wszystkie rekordy z tabeli 'uzytkownicy'}]
+SELECT * FROM uzytkownicy;  
+\end{lstlisting}
+
+%===============================================================================================
+%--- Przykład tabel ---
+\section*{Przykład tabeli}  
+
+\begin{table}[ht!]
+\centering
+\caption{Przykładowa tabela z trzema kolumnami sformatowana zgodnie z zasadami}
+\label{tab:przyklad}
+\begin{tabular}{lll}
+\toprule
+Nazwa elementu & Opis funkcjonalności & Wartość [j.] \\  
+\midrule
+Element A      & Opis szczegółowy A    & 10 \\
+Element B      & Opis szczegółowy B    & 20 \\ 
+Element C      & Opis szczegółowy C    & 30 \\
+\bottomrule 
+\end{tabular}
+\sourcetab{opracowanie własne}
+\end{table}
+
+%===============================================================================================
+%--- Przykład obrazu ---
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{rysunki/1.png} 
+    \caption{Dodatkowy schemat systemu (import z pliku PNG)}
+    \label{fig:schemat_png} % Klucz dla grafiki PNG
+\end{figure}
+
+\noindent Na rysunku \ref{fig:schemat_png} zaprezentowano strukturę systemu w ujęciu ogólnym.
+
+%===============================================================================================
+%przykład odwołania do bibliografii
+\section*{Przykład odwołania do bibliografii}
+W literaturze przedmiotu \parencite{nowak2020} omówiono zagadnienia związane z...
+
+%===============================================================================================
+%przykład owodłania do netografii
+\section*{Przykład odwołania do netografii}
+W Internecie dostępne są zasoby dotyczące... \parencite{latex_project}
+%===============================================================================================

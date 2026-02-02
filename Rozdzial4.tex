@@ -1,0 +1,29 @@
+\chapter{Implementacja i uruchomienie}
+Rozdział opisuje realizację zaprojektowanego rozwiązania oraz sposób jego uruchomienia
+z~punktu widzenia użytkownika końcowego. Przedstawiono środowisko wykonawcze, strukturę
+plików i podstawowe kroki pracy z~systemem.
+
+\section{Środowisko i narzędzia}
+Implementacja opiera się na \LaTeX{} oraz narzędziu \texttt{latexmk} uruchamianym
+w~kontenerze Docker. Takie podejście eliminuje konieczność instalacji pełnego pakietu
+\LaTeX{} na komputerze użytkownika oraz zapewnia spójność wyników.
+
+\section{Struktura projektu}
+Projekt zawiera plik główny dokumentu, rozdziały tematyczne, pliki bibliografii
+oraz katalog z~zasobami graficznymi. Taka organizacja ułatwia zarządzanie treścią
+i~rozwój dokumentu w~kolejnych iteracjach.
+
+\section{Proces uruchomienia}
+Proces uruchomienia składa się z~następujących kroków:
+\begin{itemize}
+	\item przygotowanie treści w~plikach \LaTeX{},
+	\item uruchomienie skryptu automatyzującego kompilację,
+	\item wygenerowanie pliku PDF w~katalogu głównym projektu,
+	\item opcjonalne czyszczenie plików tymczasowych po zakończeniu pracy.
+\end{itemize}
+
+\section{Obsługa błędów}
+W~przypadku problemów z~kompilacją użytkownik otrzymuje czytelny komunikat.
+Najczęstszymi przyczynami są: brak uruchomionego Dockera, błędy składni w~plikach
+\LaTeX{} lub brak wymaganych zasobów graficznych. Dzięki temu możliwe jest szybkie
+zidentyfikowanie problemu i jego korekta.

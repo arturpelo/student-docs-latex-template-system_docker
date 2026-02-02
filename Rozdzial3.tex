@@ -1,25 +1,42 @@
-\chapter{Model interfejsu i klasy — przykład}
-Poniżej znajduje się prosty model interfejsu oraz klasy go implementującej wraz z~diagramem UML (Rysunek \ref{fig:diagram_uml}) oraz kodem w języku Java (Listing \ref{lst:sample}).
+\chapter{Analiza wymagań i projekt rozwiązania}
+Rozdział przedstawia wymagania oraz projekt rozwiązania, zgodny z~charakterem pracy
+inżynierskiej o~profilu projektowym. Opis obejmuje zarówno aspekty funkcjonalne,
+jak i niefunkcjonalne, a~także strukturę systemu i proces kompilacji dokumentów.
 
-\begin{figure}[ht]
-\centering
-% ... tutaj Twój kod TikZ ...
-\caption{Model UML: implementacja interfejsu z uwzględnieniem składowych}
-\label{fig:diagram_uml} % Unikalny klucz do odwołania
-\end{figure}
+\section{Wymagania funkcjonalne}
+Do kluczowych wymagań funkcjonalnych należą:
+\begin{itemize}
+    \item możliwość kompilacji dokumentu \LaTeX{} do postaci PDF w~środowisku kontenerowym,
+    \item automatyzacja wielokrotnego przebiegu kompilacji (np. dla spisu treści),
+    \item czyszczenie plików tymczasowych po zakończeniu procesu,
+    \item czytelna informacja o~wyniku kompilacji dla użytkownika.
+\end{itemize}
 
-\noindent Poniżej przykład implementacji w języku Java przedstawiony na listingu \ref{lst:sample}.
+\section{Wymagania niefunkcjonalne}
+Rozwiązanie powinno spełniać następujące wymagania jakościowe:
+\begin{itemize}
+    \item przenośność pomiędzy systemami operacyjnymi,
+    \item powtarzalność wyników kompilacji niezależnie od środowiska hosta,
+    \item łatwość uruchomienia przez użytkownika nietechnicznego,
+    \item bezpieczeństwo wynikające z~izolacji procesu kompilacji.
+\end{itemize}
 
-\begin{lstlisting}[language=Java, caption={Interfejs i implementacja z polami klasy}, label={lst:sample}]
-// ... Twoja zawartość listingu ...
-\end{lstlisting}
+\section{Architektura rozwiązania}
+Architektura przyjmuje układ warstwowy: warstwa dokumentu (źródła \LaTeX{}),
+warstwa automatyzacji (skrypt uruchomieniowy) oraz warstwa środowiska uruchomieniowego
+(kontener Docker z~zainstalowanym \LaTeX{}). Taki podział umożliwia niezależne
+zarządzanie treścią dokumentu i procesem budowania.
 
-% DODANIE PLIKU PNG Z ODNIESIENIEM
-\begin{figure}[ht]
-    \centering
-    \includegraphics[width=0.7\textwidth]{1.png} 
-    \caption{Dodatkowy schemat systemu (import z pliku PNG)}
-    \label{fig:schemat_png} % Klucz dla grafiki PNG
-\end{figure}
+\section{Projekt procesu kompilacji}
+Proces kompilacji obejmuje:
+\begin{itemize}
+    \item przygotowanie katalogu roboczego i usunięcie plików pomocniczych,
+    \item uruchomienie kontenera i wykonanie kompilacji \texttt{latexmk} w~trybie PDF,
+    \item ponowny przebieg kompilacji w~celu odświeżenia spisów,
+    \item weryfikację istnienia pliku wynikowego i przekazanie komunikatu użytkownikowi.
+\end{itemize}
 
-\noindent Na rysunku \ref{fig:schemat_png} zaprezentowano strukturę systemu w ujęciu ogólnym.
+\section{Struktura projektu}
+Projekt składa się z~pliku głównego dokumentu oraz rozdziałów tematycznych,
+uzupełnionych o~pliki bibliografii i zasoby graficzne. Struktura jest zgodna
+z~przyjętymi standardami prac inżynierskich i ułatwia dalszą rozbudowę.

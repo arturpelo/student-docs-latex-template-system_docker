@@ -1,0 +1,29 @@
+\chapter{Testy i weryfikacja}
+Rozdział przedstawia sposób sprawdzenia poprawności działania rozwiązania oraz ocenę
+uzyskanych rezultatów. Testy skupiają się na weryfikacji kluczowych funkcji i jakości
+procesu kompilacji.
+
+\section{Strategia testów}
+Przyjęto podejście oparte na scenariuszach użycia. Każdy scenariusz odpowiada
+konkretnemu wymaganiu funkcjonalnemu lub niefunkcjonalnemu, co pozwala jednoznacznie
+ocenić, czy wymaganie zostało spełnione.
+
+\section{Scenariusze weryfikacyjne}
+Zastosowano między innymi następujące scenariusze:
+\begin{itemize}
+	\item kompilacja dokumentu bez błędów i wygenerowanie pliku PDF,
+	\item ponowna kompilacja z~uwzględnieniem spisu treści i elementów pomocniczych,
+	\item obsługa sytuacji braku uruchomionego Dockera,
+	\item reakcja systemu na błędny zapis w~pliku \LaTeX{}.
+\end{itemize}
+
+\section{Wyniki testów}
+Wyniki potwierdziły poprawność działania procesu kompilacji oraz czytelność komunikatów
+z~punktu widzenia użytkownika. Zidentyfikowano typowe źródła błędów związane z~treścią
+\LaTeX{} oraz dostępnością środowiska kontenerowego, co uwzględniono w~instrukcjach
+uruchomieniowych.
+
+\section{Ograniczenia i możliwości rozwoju}
+Testy nie obejmowały pełnych badań wydajnościowych ani integracji z~systemami ciągłej
+integracji. W~przyszłości możliwe jest rozszerzenie rozwiązania o~automatyczną walidację
+szablonu, raporty z~kompilacji oraz konfigurację zależną od profilu użytkownika.

@@ -28,9 +28,14 @@
 \titleformat{\section}[hang]{\normalfont\fontsize{14}{18}\selectfont\bfseries}{\thesection.}{0.5em}{}
 \titleformat{\subsection}[hang]{\normalfont\fontsize{14}{18}\selectfont\bfseries}{\thesubsection.}{0.5em}{}
 
-\titlespacing*{\chapter}{0pt}{12pt}{12pt}
-\titlespacing*{\section}{0pt}{6pt}{6pt}
-\titlespacing*{\subsection}{0pt}{6pt}{6pt}
+% --- Odstępy przed ponad i po nagłówkach, sekcji i podsekcji ---
+% - 0pt: pierwszy parametr brak odstępu przed 
+% - 0pt: drugi parametr brak odstępu po nagłówku rozdziału
+% - 12pt: trzeci parametr odstęp po nagłówku rozdziału
+
+\titlespacing*{\chapter}{0pt}{0pt}{12pt}      % Rozdział: brak odstępu przed, 12pt po
+\titlespacing*{\section}{0pt}{6pt}{6pt}       % Sekcja: 6pt przed i 6pt po
+\titlespacing*{\subsection}{0pt}{6pt}{6pt}    % Podsekcja: 6pt przed i 6pt po
 
 % --- Formatowanie tytułów spisów (LOF, LOT, LOL) ---
 \usepackage{tocloft}
@@ -186,6 +191,8 @@
 \input{Rozdzial1}
 \input{Rozdzial2}
 \input{Rozdzial3}
+\input{Rozdzial4}
+\input{Rozdzial5}
 \input{Podsumowanie}
 
 % 4. Bibliografia
