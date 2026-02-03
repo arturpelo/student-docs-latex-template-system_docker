@@ -1,4 +1,4 @@
-\documentclass[12pt, a4paper, oneside]{report}
+\documentclass[12pt, a4paper, twoside]{report}
 
 % --- Pakiety podstawowe ---
 \usepackage[utf8]{inputenc}
@@ -8,7 +8,7 @@
 \usepackage[polish]{babel}
 \usepackage{lmodern, indentfirst, geometry, setspace, graphicx, xcolor, float}
 \usepackage{etoolbox}
-\geometry{lmargin=3cm, rmargin=2.5cm, tmargin=2.5cm, bmargin=2.5cm}
+\geometry{inner=3cm, outer=2.5cm, tmargin=2.5cm, bmargin=2.5cm}
 \setlength{\parindent}{0.75cm}
 \usepackage{chngcntr}
 
@@ -180,21 +180,26 @@
 % ============================================================================
 % 1.                            Strona tytułowa
 % ============================================================================
+\pagenumbering{arabic}
 \title{Nazwa przedmiotu (projekt)\\tu Tytuł Twojej Pracy}
 \author{Imię Nazwisko \\ nr albumu: 123456 \\ kierunek: Informatyka \\ rok: 2025/2026}
 \maketitle
-
-\pagenumbering{arabic}
-\setcounter{page}{1}
+\thispagestyle{empty}
 % ============================================================================
 
-% 2. Spis treści
+% 2. Abstrakt
+\newpage
+\pagestyle{plain}
+\input{Abstrakt}
+\clearpage
+
+% 3. Spis treści
 \newpage
 % POPRAWKA 3: Usunięto zbędne środowisko \begin{spacing}
 \tableofcontents
 \clearpage
 
-% 3. Treść merytoryczna
+% 4. Treść merytoryczna
 \input{Wstep}
 \input{Rozdzial1}
 \input{Rozdzial2}
@@ -203,7 +208,7 @@
 \input{Rozdzial5}
 \input{Podsumowanie}
 
-% 4. Bibliografia
+% 5. Bibliografia
 \clearpage
 \phantomsection
 \printbibliography[title={Bibliografia}, nottype=online, heading=bibintoc]
@@ -212,19 +217,19 @@
 \phantomsection
 \printbibliography[title={Netografia}, type=online, heading=bibintoc]
 
-% 5. Spis rysunków
+% 6. Spis rysunków
 \clearpage
 \phantomsection
 \addcontentsline{toc}{chapter}{\listfigurename}
 \listoffigures
 
-% 6. Spis tabel
+% 7. Spis tabel
 \clearpage
 \phantomsection 
 \addcontentsline{toc}{chapter}{\listtablename}
 \listoftables
 
-% 7. Spis listingów
+% 8. Spis listingów
 \lstlistoflistings
 
 \end{document}
