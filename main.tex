@@ -3,10 +3,12 @@
 % --- Pakiety podstawowe ---
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+% --- Times New Roman jako czcionka bazowa ---
+\usepackage{mathptmx}
 % --- Dodanie wąskiej czcionki programistycznej ---
 \usepackage[varqu,varl]{zi4} % Inconsolata - smukła, nowoczesna i czytelna czcionka do kodu
 \usepackage[polish]{babel}
-\usepackage{lmodern, indentfirst, geometry, setspace, graphicx, xcolor, float}
+\usepackage{indentfirst, geometry, setspace, graphicx, xcolor, float}
 \usepackage{etoolbox}
 \geometry{inner=3cm, outer=2.5cm, tmargin=2.5cm, bmargin=2.5cm}
 \setlength{\parindent}{0.75cm}
@@ -54,6 +56,11 @@
 \cftsetindents{chapter}{0em}{1.15em}
 \setlength{\cftchapnumwidth}{1em}
 \setlength{\cftbeforetoctitleskip}{0pt}
+% Odstępy przed i po tytułach spisów rysunków i tabel
+\setlength{\cftbeforeloftitleskip}{0pt}
+\setlength{\cftafterloftitleskip}{6pt}
+\setlength{\cftbeforelottitleskip}{0pt}
+\setlength{\cftafterlottitleskip}{6pt}
 
 % --- Konfiguracja podpisów ---
 \usepackage{caption}
@@ -66,23 +73,26 @@
     labelfont={small,normalfont},
     skip=6pt
 }
-% Rysunki: Format "Rysunek X. Tytuł" (z kropką), 11pt, wyrównanie do lewej
+% Rysunki: Format "Rysunek X. Tytuł" (z kropką), label pochylony
+\DeclareCaptionLabelFormat{figureitalic}{\textit{#1 #2}}
 \captionsetup[figure]{
     labelsep=period,
     justification=raggedright,
     singlelinecheck=false,
     font={small,normalfont},
-    labelfont={small,normalfont},
+    labelformat=figureitalic,
     skip=6pt
 }
 
 % --- Makra dla źródeł (pochylone) ---
 \newcommand{\sourcefig}[1]{%
+    \vspace{-6pt}
     \begin{flushright}
     {\footnotesize\slshape Źródło: #1}
     \end{flushright}
 }
 \newcommand{\sourcetab}[1]{%
+    \vspace{-6pt}
     \begin{flushright}
     {\footnotesize\slshape Źródło: #1}
     \end{flushright}
@@ -166,6 +176,36 @@
 \addtolength{\cftsecnumwidth}{0pt}
 \addtolength{\cftsubsecnumwidth}{0pt}
 
+% --- Formatowanie spisu rysunków (LOF) ---
+% Aby wyglądał: "Rysunek 1. Topologia sieci przedsiębiorstwa, opracowanie własne ................................... 23"
+\renewcommand{\cftfigpresnum}{\itshape Rysunek }
+\renewcommand{\cftfigaftersnum}{.\ \normalfont}
+\setlength{\cftfignumwidth}{4.5em}
+\renewcommand{\cftfigleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftfigpagefont}{\normalfont}
+
+% --- Formatowanie spisu tabel (LOT) ---
+\renewcommand{\cfttabpresnum}{Tabela }
+\renewcommand{\cfttabaftersnum}{.\ }
+\setlength{\cfttabnumwidth}{4.5em}
+\renewcommand{\cfttableader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cfttabpagefont}{\normalfont}
+
+% --- Formatowanie spisu listingów (LOL) ---
+\makeatletter
+\renewcommand*\l@lstlisting{\@dottedtocline{1}{0em}{6.5em}}
+\makeatother
+\renewcommand{\lstlistingname}{Listing}
+% Prefix i suffix dla numeru listingu
+\let\oldlstlistoflistings\lstlistoflistings
+\renewcommand{\lstlistoflistings}{%
+  \begingroup
+  \let\oldnumberline\numberline
+  \renewcommand{\numberline}[1]{Listing ##1. }%
+  \oldlstlistoflistings
+  \endgroup
+}
+
 % --- Linki ---
 \usepackage{hyperref}
 \hypersetup{hidelinks}
@@ -184,11 +224,7 @@
 % ============================================================================
 % 1.                            Strona tytułowa
 % ============================================================================
-\pagenumbering{arabic}
-\title{Nazwa przedmiotu (projekt)\\tu Tytuł Twojej Pracy}
-\author{Imię Nazwisko \\ nr albumu: 123456 \\ kierunek: Informatyka \\ rok: 2025/2026}
-\maketitle
-\thispagestyle{empty}
+\input{Stronatytulowa}
 % ============================================================================
 
 % 2. Abstrakt
@@ -236,4 +272,8 @@
 % 8. Spis listingów
 \lstlistoflistings
 
+% 9. Oświadczenie
+\chapter*{Oświadczenie}
+\addcontentsline{toc}{chapter}{Oświadczenie}
+\input{Oswiadczenie}
 \end{document}
