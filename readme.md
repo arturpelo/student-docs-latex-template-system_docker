@@ -39,7 +39,7 @@ Ten projekt służy do kompilacji dokumentów LaTeX w środowisku VS Code z wyko
 2. Rozdziały są odpowiedni nazwane - znajdziesz je.
 3. we Wstępie masz przykłady jak zrobić listingi, tabele grafiki itp.
 4. Kompilacja odbywa się w kontenerze Docker zatem w VSC w terminalu wykonaj **.\start_w_Dockert.bat**
-5. po chili jeśli Docker Desktop działa ruszy kompilacja - pierwszym razem musi pobrać obrazy
+5. po chwili jeśli Docker Desktop działa ruszy kompilacja - pierwszym razem musi pobrać obrazy
 6. po zakończeniu wynik będzie w pliku main.pdf
 
 ## Scenariusz B. Użycie bez Docker'a (szybki podgląd)
