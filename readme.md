@@ -50,6 +50,10 @@ Ten projekt służy do kompilacji dokumentów LaTeX w środowisku VS Code z wyko
 - Otwórz dowolny Rozdział. Zmień... każde zapisanie pliku będzie aktualizować widok pdf po prawej
 - Twórz treści i zapisuj.
 
+## Scenariusz C. 
+
+Instnieje możliwość przeniesienia plików do [Overleaf](https://www.overleaf.com/)
+i praca w tym systemi
 ## Rozwiązywanie problemów
 
 - Jeśli kompilacja w Scenariuszu A. nie działa, sprawdź czy Docker Desktop jest uruchomiony, lub terminal to PowerShell.
